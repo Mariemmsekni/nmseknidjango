@@ -1,0 +1,67 @@
+/* Navbar Styles */
+.navbar {
+    border-bottom: 1px solid #e0e0e0; /* Bordure inférieure */
+    box-shadow: 0 2px 4px rgba(232, 230, 230, 0.1); /* Ombre */
+}
+.navbar-custom {
+    background-color: #141415; /* Votre couleur de fond personnalisée */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Taille de la police du texte du logo */
+    font-weight: bold; /* Graisse de la police */
+    color: #ffffff !important; /* Couleur du texte de la marque (blanc) */
+}
+
+.navbar-brand:hover {
+    color: #007bff; /* Couleur du texte du logo au survol */
+}
+
+.navbar-toggler {
+    border: none; /* Supprimer la bordure du bouton de basculement */
+}
+
+.navbar-toggler-icon {
+    background-color: #333333; /* Couleur de l'icône du bouton de basculement */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.2rem; /* Taille de la police des liens de navigation */
+    color: #ffffff !important; /* Couleur du texte des liens de navigation (blanc) */
+    transition: color 0.3s ease; /* Transition de couleur */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff; }
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        margin-left: auto; 
+    }
+}
+/* Style pour le formulaire de recherche */
+.form-inline {
+    display: flex;
+    align-items: center;
+    padding: 5px; 
+  }
+  
+  /* Style pour le champ de recherche */
+  .form-control {
+    border: 1px solid #ced4da; 
+    border-radius: 0.25rem; 
+    padding: 0.375rem 0.75rem; 
+  }
+  
+  /* Style pour le bouton de recherche */
+  .btn {
+    border-radius: 0.25rem; 
+    padding: 0.375rem 0.75rem; 
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; 
+  }
+  
+  /* Style pour le bouton de recherche lorsqu'il est survolé */
+  .btn:hover {
+    background-color: #4076b8; 
+    color: #fff; }
+  

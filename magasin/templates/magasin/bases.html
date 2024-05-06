@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    {% load static %}
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/bases.css'%}">
+
+    {% block styles %} {% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% block body %} {% endblock %}
+    </div>
+</body>
+</html>

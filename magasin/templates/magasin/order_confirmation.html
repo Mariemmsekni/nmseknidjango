@@ -1,0 +1,6 @@
+{% extends 'magasin/base.html' %}
+{% block body %}
+<h2>Thank You for Your Order</h2>
+<h5>Your order has been successfully placed.</h5>
+<a href="{% url 'magasin:logout' %}" class="btn-primary">Logout</a>
+{% endblock %}

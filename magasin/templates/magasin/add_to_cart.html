@@ -1,0 +1,10 @@
+{% extends 'magasin/base.html' %}
+{% block body %}
+<h2>{{ produit.libelle }}</h2>
+<p>Prix: {{ produit.prix }}</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add to Cart</button>
+</form>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'magasin/base.html' %}
+
+{% block body %}
+
+<body>
+
+<div class="container">
+    <h2 style="font-weight: bold;">Nouveau Produit</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="libelle">Libelle:</label>
+            <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Entrez le libellé...">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="Entrez la description...">
+        </div>
+
+        <div class="form-group">
+            <label for="prix">Prix:</label>
+            <input type="text" class="form-control" id="prix" name="prix" placeholder="Entrez le prix...">
+        </div>
+
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <select class="form-control" id="type" name="type">
+                <option value="em">Emballé</option>
+                <option value="fr">Frais</option>
+                <option value="cs">Conserve</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="img">Image:</label>
+            <input type="file" class="form-control-file" id="img" name="img">
+        </div>
+
+        <div class="form-group">
+            <label for="categorie">Catégorie:</label>
+            <select class="form-control" id="categorie" name="categorie">
+                {% for categorie in categories %}
+                <option value="{{ categorie.id }}">{{ categorie.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Fournisseur">Fournisseur:</label>
+            <select class="form-control" id="Fournisseur" name="Fournisseur">
+                {% for fournisseur in fournisseurs %}
+                <option value="{{ fournisseur.id }}">{{ fournisseur.nom }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-info custom-text-color">Enregistrer</button>
+        <a href="{% url 'magasin:listProduit' %}" class="btn btn-info custom-text-color">Retour</a>
+    </form>
+</div>
+
+</body>
+{% endblock %}

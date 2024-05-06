@@ -1,0 +1,38 @@
+{% extends 'magasin/base.html' %}
+<style>
+    .add-to-cart-btn {
+        background-color: #0c0c0c; 
+        color: #ffffff; 
+        border: none; 
+        padding: 10px 20px; 
+        cursor: pointer; 
+        border-radius: 5px;
+        height: 70px; 
+        margin-top: 10px; 
+    }
+</style>
+{% block body %}
+<div class="container">
+    <div class="row">
+        {% for produit in produits %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ produit.img.url }}" class="card-img-top" alt="{{ produit.libelle }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ produit.libelle }}</h5>
+                    <p class="card-text">{{ produit.prix }} DT.</p>
+                    <form method="post" action="{% url 'magasin:add_to_cart' produit.id %}" class="cart-form">
+                        {% csrf_token %}
+                        <label for="quantity">Quantité:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" class="quantity-input">
+                        <button type="submit" class="btn btn-primary add-to-cart-btn">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Aucun résultat trouvé.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'magasin/bases.html' %}
+{% load static %}
+
+{% block title %}Création d'un design étape par étape - Etape n°1 : Le code xhtml{% endblock %}
+
+{% block body %}
+    <div id="conteneur">  
+        <h1 id="header"><a href="#" title="Colored Design - Accueil"><span>Colored Design</span></a></h1> 
+        <nav> 
+            <ul id="menu"> 
+                <li><a href="{% url 'magasin:vitrine' %}">Application n°1 : Magasin</a></li>
+                <li><a href="{% url 'post_list' %}">Application n°2</a></li>
+                <li><a href="#">Application n°3</a></li>
+            </ul> 
+        </nav> 
+        <p id="footer">Base de Page de Votre Site Web Django</p> 
+    </div> 
+{% endblock %}

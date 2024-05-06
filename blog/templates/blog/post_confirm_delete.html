@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+    <style>
+        .card img {
+            width: 100%; /* Ajuster la largeur de l'image à 100% */
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+       
+
+        form p {
+            margin-bottom: 20px;
+        }
+
+        form button[type="submit"] {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button[type="submit"]:hover {
+            background-color: #c82333;
+        }
+
+        /* Styles pour la carte */
+        .card {
+            max-width: 300px; 
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: #fff;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>Confirm Delete</h1>
+    <p>Are you sure you want to delete ?</p>
+    <form method="post">
+
+        {% csrf_token %}
+        <div class="card">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <p><strong>Auteur:</strong> {{ post.author }}</p>
+            <p><strong>Date de création:</strong> {{ post.created_on }}</p>
+        <button type="submit">Confirm</button>
+        </div>
+    </form>
+</body>
+</html>

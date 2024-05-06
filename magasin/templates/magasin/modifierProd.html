@@ -1,0 +1,16 @@
+{% extends 'magasin/base.html' %}
+
+{% block body %}
+<h2>Modifier le produit</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="text-right mb-3"> 
+    <button type="submit" class="btn btn-info custom-text-color">Enregistrer</button>
+    <a href="{% url 'magasin:listProduit' %}" class="btn btn-secondary">Retour</a> 
+
+    </div>
+</form>
+
+{% endblock %}

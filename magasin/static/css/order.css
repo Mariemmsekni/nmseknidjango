@@ -1,0 +1,13 @@
+.btn-primary {
+    background-color: #0c0c0c; 
+    color: #fff; 
+    padding: 15px 30px; /* Augmenter la taille du bouton */
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    text-align: center;
+    width: 40%;
+    display: block; /* Convertir en élément de bloc */
+    margin: 0 auto; /* Centrer horizontalement */
+}
+

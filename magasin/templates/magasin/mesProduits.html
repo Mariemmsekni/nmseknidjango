@@ -1,0 +1,57 @@
+<!-- HTML -->
+
+{% extends 'magasin/base.html' %}
+
+{% block body %}
+<div class="text-right mb-3"> 
+    <a href="{% url 'magasin:nouveauProd' %}" class="btn btn-info custom-text-color">Ajouter</a> 
+</div>
+
+<h2 style="font-weight: bold;">Liste des produits</h2> 
+
+<table id="customers">  
+    <thead>   
+        <tr>      
+            <th>Nom</th>      
+            <th>Description</th>  
+            <th>Prix</th>  
+            <th>Type</th>  
+            <th>Image</th>  
+            <th>Fournisseur</th>
+            <th>Categorie</th>
+            <th>Action</th>
+
+
+        </tr>  
+    </thead>  
+    <tbody>    
+        {% for produit in produits %}  
+            <tr>      
+                <td>{{ produit.libelle }}</td>      
+                <td>{{ produit.description }}</td>  
+                <td>{{ produit.prix }}</td>  
+                <td>{{ produit.get_type_display }}</td>  
+                <td><img src="{{ produit.img.url }}" alt="{{ produit.libelle }}" style="max-width: 110px;"></td>  
+                <td>{{ produit.Fournisseur.nom }}</td>  
+                <td>{{ produit.categorie }}</td>
+                <td>
+                    
+                        <a href="{% url 'magasin:modifierProd' produit.pk %}" class="btn btn-info custom-text-color">Modifier</a>
+                        <a href="{% url 'magasin:supprimer_produit' produit.pk %}" class="btn btn-secondary" >Supprimer</a>
+
+                 
+                </td>
+            
+                
+
+
+            </tr>    
+        {% empty %}    
+            <tr>      
+                <td colspan="7">Aucun produit disponible.</td>  
+            </tr>    
+        {% endfor %}  
+    </tbody>
+</table>
+
+{% endblock %}

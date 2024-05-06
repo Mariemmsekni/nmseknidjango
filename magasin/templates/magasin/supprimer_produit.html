@@ -1,0 +1,23 @@
+{% extends 'magasin/base.html' %}
+
+{% block body %}
+
+<h3>Êtes-vous sûr de vouloir supprimer le produit :</h3>
+<form method="post">
+    {% csrf_token %}
+    <label for="libelle">Nom</label>
+    <input type="text" id="libelle" name="libelle" value="{{ produit.libelle }}" disabled><br><br>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="4" cols="50" disabled>{{ produit.description }}</textarea><br><br>
+    <label for="prix">Prix</label>
+    <input type="text" id="prix" name="prix" value="{{ produit.prix }}" disabled><br><br>
+    <label for="image">Image:</label>
+<img src="{{ produit.img.url }}" alt="{{ produit.libelle }}" style="max-width: 200px;"><br><br>
+
+    
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    <a href="{% url 'magasin:listProduit' %}" class="btn btn-secondary">Retour</a> 
+
+</form>
+
+{% endblock %}
